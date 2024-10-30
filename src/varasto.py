@@ -24,9 +24,9 @@ class Varasto:
         if maara < 0:
             return
         if maara <= self.paljonko_mahtuu():
-            self.saldo = maara #self.saldo + maara
+            self.saldo = self.saldo + maara
         else:
-            self.saldo = self.tilavuus
+            self.saldo = 0
 
     def ota_varastosta(self, maara):
         if maara < 0:
