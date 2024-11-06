@@ -20,8 +20,6 @@ jobs:
         run: pip install poetry
       - name: Install dependencies
         run: poetry install
-      - name: Add pylint
-        run: poetry add pylint --group dev
       - name: Run tests
         run: poetry run coverage run --branch -m pytest
       - name: Coverage report
@@ -30,7 +28,5 @@ jobs:
         uses: codecov/codecov-action@v4.0.1
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-      - name: Move to venv
-        run: poetry shell
       - name: Analysing the code with pylint
-        run: pylint src
+        run: poetry run pylint src
